@@ -1,0 +1,68 @@
+\makeatletter
+
+% \begin{macro}{\paircs}
+% print a computer science ordered pair. For example the ordered pair 5,4 can be printed as in \paircs{5}{4}
+%
+% \marg{item1} first element of the pair
+%
+% \marg{item2} second element of the pair
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\paircs}{m m}{%
+    \wrapMath{\langle {#1}, {#2} \rangle }%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\bigO}
+% Write the text within a big O notation (for example \verb|$\bigO{n^2}$| generates $\bigO{n^2}$)
+%
+% \marg{text} the text to diasplay in the big O notation
+%    \begin{macrocode}
+\ProvideDocumentCommand{\bigO}{m}{%
+    \wrapMath{\mathcal{O}(#1)}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\stacksymbols}
+% Stack 2 symbols on on top of the other. For instance \verb|$\stacksymbols{lim}{x \rightarrow 5}$| yields $\stacksymbols{lim}{x \rightarrow 5}$
+%
+% \marg{top} item to put on top
+%
+% \marg{bottom} item to put on bottom
+%    \begin{macrocode}
+\ProvideDocumentCommand{\stacksymbols}{m m}{%
+    \wrapMath{\stackrel{\mathclap{#1}}{#2}}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\NPComplete}
+% Displays \NPComplete{}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\NPComplete}{}{%
+    \code{NP}-Complete%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\NPHard}
+% Displays \NPHard{}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\NPHard}{}{%
+    \code{NP}-Hard%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\NPHardness}
+% Displays \NPHardness{}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\NPHardness}{}{%
+    \code{NP}-Hardness%
+}
+%    \end{macrocode}
+% \end{macro}
+
+\makeatother

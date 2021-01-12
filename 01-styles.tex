@@ -1,0 +1,73 @@
+\makeatletter
+
+% \begin{macro}{\todo}
+% Adds a todo embedded in the text (colored blue)
+% \oarg{star} if a star is present, we will put the todo as a footnote
+% \marg{text} text to put in the todo
+%    \begin{macrocode}
+\ProvideDocumentCommand{\todo}{s m}{%
+    \IfBooleanTF{#1}{%
+        \footnote{\color{blue} #2}%
+    }{%
+        {\color{blue} #2}%
+    }%
+}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \begin{macro}{\code}
+% Writes a text in a fixed font. For example \verb|\code{foo}| generates \code{foo}.
+% \marg{text} text to print in a formatted way
+%    \begin{macrocode}
+\ProvideDocumentCommand{\code}{m}{%
+    \texttt{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\isInMath}
+% If we are in math mode, do something; otherwise do something else
+% \marg{text1} section to put in the latex if we are in math mode;
+% \marg{text2} section to put in the latex if we are not in math mode;
+%    \begin{macrocode}
+\ProvideDocumentCommand{\isInMath}{m m}{%
+    \ifmmode{#1}\else{#2}\fi%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\wrapMath}
+% Write the text wrapped in math environment. If we are already in math mode, the command does nothing
+% \marg{text} text that needs to be wrapped
+%    \begin{macrocode}
+\ProvideDocumentCommand{\wrapMath}{m}{%
+    \ifmmode{#1}\else{$#1$}\fi%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\dquote}
+% Write the text wrapped in single quotes (for instance \verb|\dquote{foo}| generates \dquote{foo})
+% \marg{text} text that needs to be wrapped
+%    \begin{macrocode}
+\ProvideDocumentCommand{\dquote}{m}{%
+    ``{#1}''%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\squote}
+% Write the text wrapped in single quotes (for instance \verb|\squote{foo}| generates \squote{foo})
+% \marg{text} text that needs to be wrapped
+%    \begin{macrocode}
+\ProvideDocumentCommand{\squote}{m}{%
+    \isInMath%
+        {\mbox{`}{#1}\mbox{'}}%
+        {`{#1}'}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+
+\makeatother

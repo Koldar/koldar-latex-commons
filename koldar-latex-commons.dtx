@@ -1,0 +1,191 @@
+%\iffalse
+%% This dtx file will be evaluated twice: the frist time with comments in place, the second time where the first percentage symbol is removed.
+%% Hence, if you want to add a comment inside this file (but not in the generated pdf), cosider using percentage symbol wrapped by ifflase and fi alogn with double percentage (like here).
+%% code wrapped by ifflase are ignored in the second compilation.
+%% double percentage and single percentage are both important!
+%%  - to write documentation, use single percentage;
+%%  - to write comments, use double percentage;
+%% For other information, see https://ctan.mirror.garr.it/mirrors/ctan/info/dtxtut/dtxtut.pdf
+%\fi
+
+% \iffalse meta-comment
+%
+% Copyright (C)2021 by Massimo Bono
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3 of this license or (at your option) any later
+% version.  The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% \fi
+% \iffalse
+%% comments can be written here
+%<*driver>
+\ProvidesFile{koldar-text-commons.dtx}
+%</driver>
+
+%% the sytnax autoamtically comment all the wrapped lines
+%% THIS IS the only place where the version is specified
+%<*package>
+    \NeedsTeXFormat{LaTeX2e}[2005/12/01]
+    \ProvidesPackage{koldar-latex-commons.dtx}[2021/01/12 v1.0.0 Set of utilities I find useful]
+%</package>
+%
+%% the following will be evaluated only in the FIRST compilation
+%<*driver>
+
+\documentclass{ltxdoc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% STANDARD
+
+\RequirePackage{etoolbox}
+\RequirePackage{subcaption}
+\RequirePackage{float}
+\RequirePackage{xparse}
+\RequirePackage{xstring}
+\RequirePackage{graphicx}
+\RequirePackage{diagbox}
+\RequirePackage{listings}
+
+%% ARITHEMTIC
+
+\RequirePackage{calculator}
+
+%% PROOF READING
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+%%\RequirePackage[english]{babel}
+
+%% URL WITHIN THE PDF
+
+\RequirePackage{hyperref}
+
+%% BIBLIOGRAPHY
+
+\RequirePackage[nottoc,numbib]{tocbibind}
+
+%% TABLES
+
+\RequirePackage{booktabs}
+\RequirePackage{makecell}
+
+%% SYMBOLS
+
+\RequirePackage{pifont}
+\RequirePackage{fontawesome}
+\RequirePackage{textcomp} %% TM
+
+%% URL
+
+\RequirePackage{url}
+
+%% WARNING NOTES
+
+\RequirePackage{mdframed}
+
+%% TIKZ
+
+\RequirePackage{tikz}
+%%\RequirePackage{arrows.meta, matrix, arrows,automata,positioning}
+
+%% FONTS AND COLORS
+
+\RequirePackage{xcolor}
+\RequirePackage{cancel}
+
+%% THEOREMS & MATHS
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{mathtools}
+
+%% ALGORITHMS
+
+\RequirePackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+%% GLOSSARIES
+
+\RequirePackage{glossaries}
+\RequirePackage{glossaries-extra}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGES OPTIONS OF CUSTOM COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PROCESS OPTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProcessOptions*\relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOCUMENTATION CODE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{koldar-latex-commons}
+%% begin of Documentation option
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+%% End of Documentation option
+\begin{document}
+    \DocInput{koldar-latex-commons.dtx}
+\end{document}
+
+%</driver>
+%\fi
+%
+%\CheckSum{0}
+%
+% \iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% From this point the comments are embedded in the documentation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%% CHANGE LOG
+% \fi
+%
+%\changes{v1.0.0}{2021/01/12}{Initial version}
+%
+%\GetFileInfo{koldar-latex-commons.sty}
+%
+% \title{Koldar-latex-commons}
+% \author{Massimo Bono \\ Version \fileversion \\ Released Date \filedate}
+% \date{\today}
+% \maketitle
+
+% \iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN PACKAGE DECLARATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+
+% \section{Commands provided by the package}
+
+\input{src/cmds/01-styles.tex}
+\input{src/cmds/02-aliases.tex}
+\input{src/cmds/03-fonts.tex}
+\input{src/cmds/04-math.tex}
+\input{src/cmds/05-pseudocode.tex}
+\input{src/cmds/06-references.tex}
+\input{src/cmds/07-symbols.tex}
+\input{src/cmds/20-easy-aliases.tex}
+\input{src/cmds/21-listings.tex}
+\input{src/cmds/22-theorem.tex}
+
+% \Finale
+\endinput
+

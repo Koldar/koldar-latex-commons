@@ -1,0 +1,25 @@
+\makeatletter
+
+% \begin{macro}{\setFontSize}
+% Write a text using a font size generated on the fly
+% See https://texblog.org/2012/08/29/changing-the-font-size-in-latex/ for further information
+%
+% \marg{height} width of the letters, in pixel;
+%
+% \oarg{width} baseline of the letter, in pixel. If missing, it will be $1.2 \cdot height$;
+%
+% \marg{text} text to write using this font
+%    \begin{macrocode}
+\ProvideDocumentCommand{\setFontSize}{m o m}{%
+    \IfNoValueF{#2}{%
+        \fontsize{#1}{#2}\selectfont#3%
+    }{%
+        
+        \MULTIPLY{#1}{1.2}{\setFont@baseline}%
+        \fontsize{#1}{\setFont@baseline}\selectfont#3%
+    }%
+}
+%    \end{macrocode}
+% \end{macro}
+
+\makeatother

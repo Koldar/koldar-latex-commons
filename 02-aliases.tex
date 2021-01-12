@@ -1,0 +1,66 @@
+\makeatletter
+
+% \begin{macro}{\eg}
+% Write the for example acronym. (\eg{})
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\eg}{}{%
+    e.g.,%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\ie}
+% Write the for instance acronym. (\ie{})
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\ie}{}{%
+    i.e.,%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\st}
+% Write the \dquote{such that} acronym. (\st{})
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\st}{}{%
+    s.t.%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\wrt}
+% Write the \dquote{with respect to} acronym. (\wrt{})
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\wrt}{}{%
+    w.r.t.%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\iff}
+% Write the if and only if acronym.
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\iff}{}{%
+    \textit{iff}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \begin{macro}{\cite}
+% Automatically prepend a space before the citation.
+% See https://tex.stackexchange.com/a/369691/145331 for further information
+%
+% \marg{cite} citation to add. Can also be a comma-separated field
+%    \begin{macrocode}
+\let\@oldcite\cite
+\renewcommand*\cite[1]{~\@oldcite{#1}}
+%    \end{macrocode}
+% \end{macro}
+
+
+\makeatother

@@ -1,0 +1,200 @@
+% Commands which are just alias for common latex operations
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WARNING AND NOTES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{environment}{attention}
+% Show an attention box. The body of the environment is the body of the box 
+%
+%
+%    \begin{macrocode}
+\ProvideDocumentEnvironment{attention}{}{%
+    \par%
+        \begin{mdframed}[linewidth=3pt,linecolor=red]%
+            \begin{list}{}{\leftmargin=1cm \labelwidth=\leftmargin}%
+                \item[\Large\faBomb]%
+}{%
+            \end{list}%
+        \end{mdframed}%
+    \par
+}
+%    \end{macrocode}
+% \end{environment}
+
+%\begin{environment}{warning}
+% Show a warning box. The body of the environment is the body of the box
+%
+%    \begin{macrocode}
+\ProvideDocumentEnvironment{warning}{}{%
+    \par%
+        \begin{mdframed}[linewidth=3pt,linecolor=orange]%
+            \begin{list}{}{\leftmargin=1cm \labelwidth=\leftmargin}%
+                \item[\Large\faWarning]%
+}{%
+            \end{list}%
+        \end{mdframed}%
+    \par
+}
+%    \end{macrocode}
+% \end{environment}
+
+%\begin{environment}{info}
+% Show an note box. The body of the environment is the body of the box
+%
+%    \begin{macrocode}
+\ProvideDocumentEnvironment{info}{}{%
+    \par%
+        \begin{mdframed}[linewidth=3pt,linecolor=blue]%
+            \begin{list}{}{\leftmargin=1cm \labelwidth=\leftmargin}%
+                \item[\Large\faBook]%
+}{%
+            \end{list}%
+        \end{mdframed}%
+    \par
+}
+%    \end{macrocode}
+% \end{environment}
+
+%\begin{environment}{note}
+% Alias of "info"
+%
+%    \begin{macrocode}
+\ProvideDocumentEnvironment{note}{}{%
+    \par%
+        \begin{mdframed}[linewidth=3pt,linecolor=blue]%
+            \begin{list}{}{\leftmargin=1cm \labelwidth=\leftmargin}%
+                \item[\Large\faBook]%
+}{%
+            \end{list}%
+        \end{mdframed}%
+    \par
+}
+%    \end{macrocode}
+% \end{environment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FLOATS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{environment}{horizontalpage}
+% Setup the a horizontal page instead of the classic portait page
+%
+%    \begin{macrocode}
+\ProvideDocumentEnvironment{horizontalpage}{+b}{%
+    \begin{sidewaysfigure}%
+        #1%
+    \end{sidewaysfigure}%
+}{%
+}
+%    \end{macrocode}
+% \end{environment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TEX COMMONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{macro}{\italic}
+% Write something in italic. Alias of \verb|\textit|
+%
+% \marg{ref} the text to write in italic
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\italic}{m}{%
+    \textit{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GLOSSARIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{macro}{\acronymRef}
+% Display the given acronym 
+%
+% \marg{ref} name of the acronym to print
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\acronymRef}{m}{%
+   \gls{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \begin{macro}{\acrref}
+% Display the given acronym 
+%
+% \marg{ref} name of the acronym to print
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\acrref}{m}{%
+   \gls{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\acref}
+% Display the given acronym 
+%
+% \marg{acronym name} name of the acronym to print
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\acref}{m}{%
+   \gls{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\glossaryRef}
+% Display a glossary entry with the first letter as miniscule.
+%This is just a more rememberable alias of \verb|\gls|
+%
+% \marg{glossary entry} name of the glossary entry to cite. 
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\glossaryRef}{m}{%
+    \gls{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\GlossaryRef}
+% Display a glossary entry with the first letter as capital.
+%This is just a more rememberable alias of \verb|\Gls|
+%
+% \marg{glossary entry} name of the glossary entry to cite. 
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\GlossaryRef}{m}{%
+    \Gls{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\glsref}
+% Display a glossary entry with the first letter as miniscule.
+%This is just a more rememberable alias of \verb|\gls|.
+%
+% \marg{glossary entry} name of the glossary entry to cite. 
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\glsref}{m}{%
+    \gls{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\Glsref}
+% Display a glossary entry with the first letter as capital.
+% This is just a more rememberable alias of \verb|\Gls|.
+%
+% \marg{glosssary entry} name of the glossary entry to cite. 
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\Glsref}{m}{%
+    \Gls{#1}%
+}
+%    \end{macrocode}
+% \end{macro}

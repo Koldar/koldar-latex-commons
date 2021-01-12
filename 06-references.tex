@@ -1,0 +1,219 @@
+\makeatletter
+
+% \begin{macro}{\lstref}
+%  Add a reference to a listing created using \verb|\begin{lstlisting}|
+%
+% \marg{item1} the label of the section
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\lstref}{m}{%
+    Listing \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\listingref}
+%  Add a reference to a listing created using \verb|\begin{lstlisting}|
+%
+% \marg{item1} the label of the section
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\listingref}{m}{%
+    Listing \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\subsubsectionref}
+%  Add a reference to a \verb|\subsubsection|
+%
+% \marg{item1} the label of the subsubsection
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\subsubsectionref}{m}{%
+    Sub Sub Section \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\sectionref}
+%  Add a reference to a \verb|\section|
+%
+% \marg{item1} the label of the section
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\sectionref}{m}{%
+    Section \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\equationref}
+%  Add a reference to an equation
+%
+% \marg{item1} the label of the equation
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\equationref}{m}{%
+    Equation \eqref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\alglineref}
+%  Add a reference to a line within an algorithm
+%
+% \marg{item1} the label of the line
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\alglineref}{m}{%
+    Line \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\alglinesref}
+% Add a reference to a range of lines within an algorithm.
+%
+% \marg{first} first line of the range;
+%
+% \marg{last} last line of the range;
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\alglinesref}{m m}{%
+    Lines \ref{#1}--\ref{#2}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\algref}
+% Add a reference to an algorithm
+%
+% \marg{ref} the label of the algorithm
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\algref}{m}{%
+    Algorithm \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\defref}
+% Add a reference to a definition
+%
+% \marg{ref} the label of the definition
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\defref}{m}{%
+    Definition \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\defsref}
+% Add a reference to a range of definitions
+%
+% \marg{start} the label of the first definition
+%
+% \marg{end} the label of the second definition
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\defsref}{m m}{%
+    Definitions \ref{#1}--\ref{#2}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\figref}
+% Add a reference to a figure
+%
+% \marg{ref} the label of the figure
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\figref}{m}{%
+    Figure \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\figsref}
+% Add a reference to a range of figure
+%
+% \marg{start} the label of the first figure in the range (inclusive)
+%
+% \marg{end} the label of the last figure in the range (inclusive)
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\figsref}{m m}{%
+    Figures \ref{#1}--\ref{#2}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+\ProvideDocumentCommand{\r@figrefs}{m}{%
+    \@ifnextchar\bgroup{, \ref{#1}\r@figrefs}{ and \ref{#1}}%
+}
+
+% \begin{macro}{\figrefs}
+% Add a reference to a list fo figures. The figures are joined via \verb|,|,
+% except the last one since it is concatenated using the word \verb|and|.
+% For example \verb|\figrefs{fig:01}{fig:02}{fig:03}|
+%
+% \marg{...} variadic elements. 
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\figrefs}{m}{%
+    Figures \ref{#1}\r@figrefs%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\tblref}
+% Add a reference to a table
+%
+% \marg{ref} the label of the table
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\tblref}{m}{%
+    Table \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\thmref}
+% Add a reference to a theorem
+%
+% \marg{ref} the label of the theorem
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\thmref}{m}{%
+    Theorem \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\lemmaref}
+% Add a reference to a lemma
+%
+% \marg{ref} the label of the lemma
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\lemmaref}{m}{%
+    Lemma \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\exampleref}
+% Add a reference to an example
+%
+% \marg{ref} the label of the example
+%
+%    \begin{macrocode}
+\ProvideDocumentCommand{\exampleref}{m}{%
+    Example \ref{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+\makeatother
