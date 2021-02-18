@@ -1,11 +1,22 @@
-%\iffalse
-%% This dtx file will be evaluated twice: the frist time with comments in place, the second time where the first percentage symbol is removed.
-%% Hence, if you want to add a comment inside this file (but not in the generated pdf), cosider using percentage symbol wrapped by ifflase and fi alogn with double percentage (like here).
-%% code wrapped by ifflase are ignored in the second compilation.
-%% double percentage and single percentage are both important!
-%%  - to write documentation, use single percentage;
-%%  - to write comments, use double percentage;
-%% For other information, see https://ctan.mirror.garr.it/mirrors/ctan/info/dtxtut/dtxtut.pdf
+%\iffalse meta-comment
+% This dtx file will be evaluated twice: 
+% - the frist time with comments in place, 
+% - the second time where the first percentage symbol is removed.
+% 
+% In the second compilation, to avoid computing the content of a comment, ensure it is wrapped in iffalse and fi (like here).
+% Thus:
+% - code in comments wrapped by iffalse are ignored in both the first and in the second compilation;
+% - code in comments without iffalse are ignored in the first compilation BUT not in the second compilation;
+% - code outside comments are evaluated in both the first compilation AND in the second compilation;
+%
+% Hence the rule is:
+% - code outside comments is the library actual code;
+% - code inside comments is latex code that will be put in the library documentation;
+% - code inside comments wrapped in iffalse are actual comments that are ignored by latex (in both compilations)
+%
+% lines within <*documentation> and </documentation> are put into .sty verbatim
+%
+% For other information, see https://ctan.mirror.garr.it/mirrors/ctan/info/dtxtut/dtxtut.pdf
 %\fi
 
 % \iffalse meta-comment
@@ -17,36 +28,101 @@
 % version 1.3 of this license or (at your option) any later
 % version.  The latest version of this license is in:
 %
-%    http://www.latex-project.org/lppl.txt
+%      http://www.latex-project.org/lppl.txt
 %
 % and version 1.3 or later is part of all distributions of
 % LaTeX version 2005/12/01 or later.
 %
 % \fi
-% \iffalse
-%% comments can be written here
-%<*driver>
-\ProvidesFile{koldar-text-commons.dtx}
-%</driver>
 
-%% the sytnax autoamtically comment all the wrapped lines
-%% THIS IS the only place where the version is specified
-%<*package>
+% \iffalse
+%<*documentation>
     \NeedsTeXFormat{LaTeX2e}[2005/12/01]
     \ProvidesPackage{koldar-latex-commons.dtx}[2021/01/12 v1.0.0 Set of utilities I find useful]
-%</package>
-%
-%% the following will be evaluated only in the FIRST compilation
+%</documentation>
+
+% \iffalse
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%% CONTENT COMPILED DURING THE FIRST COMPILATION %%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+
 %<*driver>
 
 \documentclass{ltxdoc}
+\usepackage{koldar-latex-commons}
+% begin of Documentation option
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+%  End of Documentation option
+\begin{document}
+    \DocInput{koldar-latex-commons.dtx}
+\end{document}
 
+%</driver>
+
+% \fi
+
+% \iffalse
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%% CONTENT COMPILED DURING THE SECOND COMPILATION %%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+
+% \doccomment{Checksum to ensure the package has been correctly downloaded}
+%
+% \CheckSum{0}
+%
+%
+% \doccomment{Change log of the library}
+%
+%\changes{v1.0.0}{2021/01/12}{Initial version}
+%
+% \doccomment{Fetches filedate, fileversion and fileinfo from ProvidesPackage entry}
+%
+%\GetFileInfo{koldar-latex-commons.sty}
+%
+% \doccomment{
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%% START OF THE LIBRARY AND OF THE LIBRARY DOCUMENTATION %%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% }
+%
+%
+% \title{Koldar-latex-commons}
+% \author{Massimo Bono \\ Version \fileversion \\ Released Date \filedate}
+% \date{\today}
+% \maketitle
+% \clearpage
+% \tableofcontents
+% \clearpage
+% \section{Why this library?}
+% When writing latex code, I often required the same commands and environment to quickly writing documents and report. I needed simple functions that performed
+% simple but common actions. Furthermore, often I needed other developers which were not fully accustumed to writing latex documents to edit the documents themselves.
+%
+% This library aims to solve these 2 tasks:
+% \begin{itemize}
+%   \item providing simple but commonly needed commands and environments;
+%   \item providing simple alias that performs actions in a way that hide latex complexity to new developers;
+% \end{itemize}
+%
+% \iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACKAGES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% STANDARD
-
+% \fi
+% 
+% \iffalse STANDARD \fi
+% \iffalse
+% Since RequirePackage clashes when performing the second latex compilation, we need to exclude the section from the second compilation. Hence we wrap it using the supper \ iffalse
+\RequirePackage{xkeyval} 
 \RequirePackage{etoolbox}
 \RequirePackage{subcaption}
 \RequirePackage{float}
@@ -56,135 +132,101 @@
 \RequirePackage{diagbox}
 \RequirePackage{listings}
 
-%% ARITHEMTIC
+% \iffalse ARITHEMTIC \fi
 
 \RequirePackage{calculator}
 
-%% PROOF READING
+% \iffalse PROOF READING \fi
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-%%\RequirePackage[english]{babel}
+% \iffalse \RequirePackage[english]{babel} \fi
 
-%% URL WITHIN THE PDF
+% \iffalse URL WITHIN THE PDF \fi
 
 \RequirePackage{hyperref}
 
-%% BIBLIOGRAPHY
+% \iffalse BIBLIOGRAPHY \fi
 
 \RequirePackage[nottoc,numbib]{tocbibind}
 
-%% TABLES
+% \iffalse TABLES \fi
 
 \RequirePackage{booktabs}
 \RequirePackage{makecell}
 
-%% SYMBOLS
+% \iffalse SYMBOLS \fi
 
 \RequirePackage{pifont}
 \RequirePackage{fontawesome}
-\RequirePackage{textcomp} %% TM
+\RequirePackage{textcomp} % \iffalse TM \fi
 
-%% URL
+% \iffalse URL \fi
 
 \RequirePackage{url}
 
-%% WARNING NOTES
+% \iffalse WARNING NOTES \fi
 
 \RequirePackage{mdframed}
 
-%% TIKZ
+% \iffalse TIKZ \fi
 
 \RequirePackage{tikz}
-%%\RequirePackage{arrows.meta, matrix, arrows,automata,positioning}
+% \iffalse \RequirePackage{arrows.meta, matrix, arrows,automata,positioning} \fi
 
-%% FONTS AND COLORS
+% \iffalse FONTS AND COLORS \fi
 
 \RequirePackage{xcolor}
 \RequirePackage{cancel}
 
-%% THEOREMS & MATHS
+% \iffalse THEOREMS & MATHS \fi
 
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{mathtools}
 
-%% ALGORITHMS
+%\iffalse ALGORITHMS \fi
 
 \RequirePackage[ruled,vlined,linesnumbered]{algorithm2e}
 
-%% GLOSSARIES
+% \iffalse GLOSSARIES \fi
 
 \RequirePackage{glossaries}
 \RequirePackage{glossaries-extra}
 
+% \iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACKAGES OPTIONS OF CUSTOM COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
 
+% \iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PROCESS OPTIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
 
 \ProcessOptions*\relax
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% DOCUMENTATION CODE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{koldar-latex-commons}
-%% begin of Documentation option
-\EnableCrossrefs
-\CodelineIndex
-\RecordChanges
-%% End of Documentation option
-\begin{document}
-    \DocInput{koldar-latex-commons.dtx}
-\end{document}
-
-%</driver>
-%\fi
-%
-%\CheckSum{0}
-%
-% \iffalse
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% From this point the comments are embedded in the documentation
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \fi
-%
-% \iffalse
-%% CHANGE LOG
-% \fi
-%
-%\changes{v1.0.0}{2021/01/12}{Initial version}
-%
-%\GetFileInfo{koldar-latex-commons.sty}
-%
-% \title{Koldar-latex-commons}
-% \author{Massimo Bono \\ Version \fileversion \\ Released Date \filedate}
-% \date{\today}
-% \maketitle
-
-% \iffalse
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% BEGIN PACKAGE DECLARATIONS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \fi
 
 % \section{Commands provided by the package}
+% We categorize the provided commands and environment according to what they achieve.
 
-\input{src/cmds/01-styles.tex}
-\input{src/cmds/02-aliases.tex}
-\input{src/cmds/03-fonts.tex}
-\input{src/cmds/04-math.tex}
-\input{src/cmds/05-pseudocode.tex}
-\input{src/cmds/06-references.tex}
-\input{src/cmds/07-symbols.tex}
-\input{src/cmds/20-easy-aliases.tex}
-\input{src/cmds/21-listings.tex}
-\input{src/cmds/22-theorem.tex}
+% \subsection{Utils}
+\input{08-utils.dtx}
+
+
+\input{01-styles.tex}
+\input{02-aliases.tex}
+\input{03-fonts.tex}
+\input{04-math.tex}
+\input{05-pseudocode.tex}
+\input{06-references.tex}
+\input{07-symbols.tex}
+\input{20-easy-aliases.tex}
+\input{21-listings.tex}
+\input{22-theorem.tex}
 
 % \Finale
 \endinput

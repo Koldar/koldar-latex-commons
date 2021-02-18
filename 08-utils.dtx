@@ -1,0 +1,17 @@
+\makeatletter
+
+% \begin{macro}{\doccomment}
+% When writing a dtx, use this command \textbf{within} a comment to write a comment that is ignored both in the first and in the second docstrip compilation
+%
+%
+%
+% \marg{text} text to put in the comment
+%    \begin{macrocode}
+    \ProvideDocumentCommand{\doccomment}{m}{%
+        \iffalse {#1} \fi%
+    }%
+%    \end{macrocode}
+% \end{macro}
+
+
+\makeatother
