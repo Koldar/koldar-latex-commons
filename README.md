@@ -12,10 +12,20 @@ Installation
 Build
 =====
 
+You can build it by yourself via the following commands:
+
 ```
 pdflatex.exe .\koldar-latex-commons.ins
 pdflatex.exe .\koldar-latex-commons.dtx
 ```
+
+Or you can use `pmakeup` project to build the software. Install `pmakeup`software:
+
+```
+pip install pmakeup
+```
+
+then, use `pmakeup build` to build the sty file, `pmakeup doc` to build the dtx file and  `pmakeup ctan` to upload a new file version to CTAN.
 
 Upload to CTAN
 ==============

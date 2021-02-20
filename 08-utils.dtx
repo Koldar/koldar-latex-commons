@@ -1,14 +1,40 @@
 \makeatletter
 
-% \begin{macro}{\doccomment}
-% When writing a dtx, use this command \textbf{within} a comment to write a comment that is ignored both in the first and in the second docstrip compilation
+% \begin{environment}{documentcomment}
+% An environment that adds a multi line comment. You can put your comment. Such a text will not be shown nor in the generated .sty
+% file nor in the pdf documentation
+% \marg{text} the text representing your comment. Can be on multiple paragraph
 %
-%
-%
-% \marg{text} text to put in the comment
+% \begin{lstlisting}
+% \begin{documentcomment}
+%   My awesome comment.
+%   multiline is supported as well.
+% \end{documentcomment}
+% \end{lstlisting}
 %    \begin{macrocode}
-    \ProvideDocumentCommand{\doccomment}{m}{%
-        \iffalse {#1} \fi%
+\NewDocumentEnvironment{documentcomment}{+b}{%
+    \iffalse {#1} \fi%
+}{%
+%
+}
+%    \end{macrocode}
+% \end{environment}
+
+% \begin{macro}{\doccomment}
+% When writing a dtx, use this command \textbf{within} a comment to write a comment that is ignored both in the first and in the second docstrip compilation. Can be used to wrap multiline comments as well
+% \begin{lstlisting}
+% \doccomment{This is a comment in your dtx library (in both compilations)}
+% \doc{This is a multiline%
+% comment on your dtx file.
+% }
+% \end{lstlisting}
+%
+% \marg{text} text to put in the comment.
+%    \begin{macrocode}
+    \ProvideDocumentCommand{\doccomment}{+m}{%
+        \begin{documentcomment}%
+        #1%
+        \end{documentcomment}%
     }%
 %    \end{macrocode}
 % \end{macro}
