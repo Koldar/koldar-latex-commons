@@ -88,7 +88,7 @@ def upload():
         folder_name_in_zip_file=variables.PKG_NAME
     )
 
-    execute_stdout_on_screen(f"""curl --verbose -X POST --header "Content-Type: application/x-www-form-urlencoded" --form "author={variables.CTAN_UPLOAD_AUTHOR}" --form "description={description}" --form "email={variables.CTAN_UPLOAD_EMAIL}" --form "license={variables.CTAN_UPLOAD_LICENSE}" --form "pkg={variables.PKG_NAME}" --form "summary={description}" --form "update={update}" --form "uploader={variables.CTAN_UPLOAD_AUTHOR}" --form "version={version}" --form "home={variables.CTAN_UPLOAD_PACKAGE_HOME}" --form 'file=@{file_to_upload}' 'https://www.ctan.org/submit/validate' """)
+    execute_stdout_on_screen(f"""curl --verbose -X POST --header "Content-Type: application/x-www-form-urlencoded" --form "author={variables.CTAN_UPLOAD_AUTHOR}" --form "description={description}" --form "email={variables.CTAN_UPLOAD_EMAIL}" --form "license={variables.CTAN_UPLOAD_LICENSE}" --form "pkg={variables.PKG_NAME}" --form "summary={description}" --form "update={update}" --form "uploader={variables.CTAN_UPLOAD_AUTHOR}" --form "version={version}" --form "home={variables.CTAN_UPLOAD_PACKAGE_HOME}" --form "repo={variables.CTAN_UPLOAD_PACKAGE_HOME}" --form "ctanPath={variables.CTAN_UPLOAD_PACKAGE_CTANPATH}" --form "announcement={description}" --form 'file=@{file_to_upload}' 'https://www.ctan.org/submit/validate' """)
 
 
 declare_target(target_name="clean", f=clean, requires=None, description="Clean build files")
